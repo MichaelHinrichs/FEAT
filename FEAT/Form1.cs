@@ -356,13 +356,13 @@ namespace FEAT
                     {
                         AddLine(RTB_Output, string.Format("Successfully extracted Heroes Message Archive {0}", Path.GetFileName(path)));
                     }
-                    else
+                    else if (B_BinDecomp.Checked)
                     {
                         AddText(RTB_Output, $"Converting {Path.GetFileName(path)} to {Path.GetFileNameWithoutExtension(path)}.txt...");
                         FE3D_Bin.ExtractBin(path);
                         AddLine(RTB_Output, "Done");
                     }
-                    if (B_DeleteAfter.Checked)
+                    if (B_DeleteAfter.Checked && B_BinDecomp.Checked)
                         File.Delete(path);
                 }
                 else if (ext == ".arc")

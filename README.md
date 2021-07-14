@@ -21,13 +21,17 @@ Drag and Drop an Extract CTPK folder to rebuild the CTPK.<br />
 [SPICA](https://github.com/gdkchan/SPICA) for bch/gfx Parsing,<br />
 [FEIF_Arc](https://github.com/GovanifY/FEIF_ARC) for Arc packing and unpacking<br />
 [SciresM](https://github.com/SciresM) for the original FEAT code<br />
-AmbiguousPresence#4536 for the ruby script.
+AmbiguousPresence#4536 for the ruby script bin decompiling is based on.
+
+## Velouria Forked FEAT v2.5
+- Option to toggle bin decompiling on and off
+- Added tooltips for opitons explaining them
 
 ## Velouria Forked FEAT v2.4
 - Added method for batch compression
 - Added option to delete files
-- Improved Ruby Script handling 
-- Fixed FEAT compressing file before Ruby script is done
+- .icn handling
+- bin converting tool 
 
 ## Velouria Forked FEAT v2.3
 - Integrated support for Ruby script 
