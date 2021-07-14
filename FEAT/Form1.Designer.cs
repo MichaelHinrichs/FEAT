@@ -48,7 +48,7 @@
             this.B_Align32 = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Align64 = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Align128 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_RubyScript = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_BinDecomp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,7 +127,7 @@
             this.B_BuildTexture,
             this.B_ArcPadding,
             this.B_Alignment,
-            this.B_RubyScript});
+            this.B_BinDecomp});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -140,30 +140,34 @@
             this.B_AutoExtract.CheckOnClick = true;
             this.B_AutoExtract.CheckState = System.Windows.Forms.CheckState.Checked;
             this.B_AutoExtract.Name = "B_AutoExtract";
-            this.B_AutoExtract.Size = new System.Drawing.Size(180, 22);
+            this.B_AutoExtract.Size = new System.Drawing.Size(200, 22);
             this.B_AutoExtract.Text = "Auto Extract";
+            this.B_AutoExtract.ToolTipText = "Processes the file again after decompressing it";
             // 
             // B_BatchMode
             // 
             this.B_BatchMode.CheckOnClick = true;
             this.B_BatchMode.Name = "B_BatchMode";
-            this.B_BatchMode.Size = new System.Drawing.Size(180, 22);
+            this.B_BatchMode.Size = new System.Drawing.Size(200, 22);
             this.B_BatchMode.Text = "Batch Compress";
+            this.B_BatchMode.ToolTipText = "Overwrites the compression hotkey and \r\nforces FEAT to always compress";
             this.B_BatchMode.Click += new System.EventHandler(this.B_BatchMode_Click);
             // 
             // B_DeleteAfter
             // 
             this.B_DeleteAfter.CheckOnClick = true;
             this.B_DeleteAfter.Name = "B_DeleteAfter";
-            this.B_DeleteAfter.Size = new System.Drawing.Size(180, 22);
+            this.B_DeleteAfter.Size = new System.Drawing.Size(200, 22);
             this.B_DeleteAfter.Text = "Delete After Use";
+            this.B_DeleteAfter.ToolTipText = "Deletes the file being proccessed \r\nleaving only the results";
             // 
             // B_BuildTexture
             // 
             this.B_BuildTexture.CheckOnClick = true;
             this.B_BuildTexture.Name = "B_BuildTexture";
-            this.B_BuildTexture.Size = new System.Drawing.Size(180, 22);
+            this.B_BuildTexture.Size = new System.Drawing.Size(200, 22);
             this.B_BuildTexture.Text = "Build Textures";
+            this.B_BuildTexture.ToolTipText = "Enables texture importing";
             // 
             // B_ArcPadding
             // 
@@ -171,8 +175,9 @@
             this.B_ArcPadding.CheckOnClick = true;
             this.B_ArcPadding.CheckState = System.Windows.Forms.CheckState.Checked;
             this.B_ArcPadding.Name = "B_ArcPadding";
-            this.B_ArcPadding.Size = new System.Drawing.Size(180, 22);
+            this.B_ArcPadding.Size = new System.Drawing.Size(200, 22);
             this.B_ArcPadding.Text = "ARC Padding";
+            this.B_ArcPadding.ToolTipText = "Beginning of file padding for arcs";
             // 
             // B_Alignment
             // 
@@ -183,31 +188,32 @@
             this.B_Align64,
             this.B_Align128});
             this.B_Alignment.Name = "B_Alignment";
-            this.B_Alignment.Size = new System.Drawing.Size(180, 22);
+            this.B_Alignment.Size = new System.Drawing.Size(200, 22);
             this.B_Alignment.Text = "ARC File Alignment";
+            this.B_Alignment.ToolTipText = "Padding between files \r\nin arcs so the align \r\nwithin chunks";
             // 
             // B_Align0
             // 
             this.B_Align0.Name = "B_Align0";
-            this.B_Align0.Size = new System.Drawing.Size(180, 22);
+            this.B_Align0.Size = new System.Drawing.Size(123, 22);
             this.B_Align0.Text = "0 bytes";
             // 
             // B_Align16
             // 
             this.B_Align16.Name = "B_Align16";
-            this.B_Align16.Size = new System.Drawing.Size(180, 22);
+            this.B_Align16.Size = new System.Drawing.Size(123, 22);
             this.B_Align16.Text = "16 bytes";
             // 
             // B_Align32
             // 
             this.B_Align32.Name = "B_Align32";
-            this.B_Align32.Size = new System.Drawing.Size(180, 22);
+            this.B_Align32.Size = new System.Drawing.Size(123, 22);
             this.B_Align32.Text = "32 bytes";
             // 
             // B_Align64
             // 
             this.B_Align64.Name = "B_Align64";
-            this.B_Align64.Size = new System.Drawing.Size(180, 22);
+            this.B_Align64.Size = new System.Drawing.Size(123, 22);
             this.B_Align64.Text = "64 bytes";
             // 
             // B_Align128
@@ -215,15 +221,16 @@
             this.B_Align128.Checked = true;
             this.B_Align128.CheckState = System.Windows.Forms.CheckState.Checked;
             this.B_Align128.Name = "B_Align128";
-            this.B_Align128.Size = new System.Drawing.Size(180, 22);
+            this.B_Align128.Size = new System.Drawing.Size(123, 22);
             this.B_Align128.Text = "128 bytes";
             // 
-            // B_RubyScript
+            // B_BinDecomp
             // 
-            this.B_RubyScript.CheckOnClick = true;
-            this.B_RubyScript.Name = "B_RubyScript";
-            this.B_RubyScript.Size = new System.Drawing.Size(180, 22);
-            this.B_RubyScript.Text = "Enable Ruby Script";
+            this.B_BinDecomp.CheckOnClick = true;
+            this.B_BinDecomp.Name = "B_BinDecomp";
+            this.B_BinDecomp.Size = new System.Drawing.Size(200, 22);
+            this.B_BinDecomp.Text = "Enable Bin Decompiling";
+            this.B_BinDecomp.ToolTipText = "Convert Bin files to txt files";
             // 
             // Form1
             // 
@@ -264,9 +271,9 @@
         private System.Windows.Forms.ToolStripMenuItem B_Align32;
         private System.Windows.Forms.ToolStripMenuItem B_Align64;
         private System.Windows.Forms.ToolStripMenuItem B_Align128;
-        private System.Windows.Forms.ToolStripMenuItem B_RubyScript;
         private System.Windows.Forms.ToolStripMenuItem B_BatchMode;
         private System.Windows.Forms.ToolStripMenuItem B_DeleteAfter;
+        private System.Windows.Forms.ToolStripMenuItem B_BinDecomp;
     }
 }
 
