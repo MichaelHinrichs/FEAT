@@ -381,7 +381,7 @@ namespace FEAT
                         FE3D_Bin.ExtractArc(Path.GetDirectoryName(path) + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(path) + Path.DirectorySeparatorChar, filedata);
                     AddLine(RTB_Output, "Done");
                 }
-                else if (magic == "CPTK")
+                else if (magic == "CTPK")
                 {
                     AddText(RTB_Output, string.Format("Extracting images from {0}...", Path.GetFileName(path)));
                     Ctpk.Read(path, Path.GetDirectoryName(path) + Path.DirectorySeparatorChar + Path.GetFileNameWithoutExtension(path));
@@ -390,7 +390,7 @@ namespace FEAT
                 else if (magic == "BCH" || magic == "CGFX")
                 {
                     AddText(RTB_Output, string.Format("Extracting textures from {0}...", Path.GetFileName(path)));
-                    if (ext == ".t" || ext == ".bcmdl" || ext == ".m")
+                    if (magic == "CGFX")
                     {
                         Scene = Gfx.Open(path).ToH3D();
                     }
