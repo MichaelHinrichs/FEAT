@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 using DSDecmp.Formats.Nitro;
 using ctpktool;
 using SPICA.Formats.CtrH3D;
@@ -135,67 +136,74 @@ namespace FEAT
         {
             if (Directory.Exists(path))
             {
-                if (B_BuildTexture.Checked)
-                {
-                    if (Directory.Exists(path) && File.Exists($"{path}.bch")) //bch
-                    {
-                        AddText(RTB_Output, string.Format("Importing textures to {0}...", Path.GetFileName(path)));
-                        Scene = H3D.Open(File.ReadAllBytes($"{path}.bch"));
-                        if (Scene.Models.Count > 0)
-                        {
-                            AddLine(RTB_Output, "Failure!, Model file found.");
-                        }
-                        else
-                        {
-                            for (int i = 0; i < Scene.Textures.Count; i++)
-                            {
-                                string Filename = Path.Combine(path, $"{Scene.Textures[i].Name}.png");
-                                if (File.Exists(Filename))
-                                {
-                                    H3DTexture Texture = new H3DTexture(Filename);
-                                    Scene.Textures[i].ReplaceData(Texture);
-                                    H3D.Save($"{path}.bch", Scene);
-                                }
-                            }
-                            AddLine(RTB_Output, "Complete!");
-                        }
-                    }
-                    else //ctpk
-                    {
-                        string[] filelist = Directory.GetFiles(path, "*.xml");
-                        if (filelist == null || filelist.Length == 0)
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            if (filelist.Length == 1 && Path.GetFileName(filelist[0]) == "icon.xml")
-                            {
-                                AddText(RTB_Output, string.Format("Building ctpk from {0}...", Path.GetFileName(path)));
-                                Ctpk.Create(path, path + ".ctpk");
-                                AddLine(RTB_Output, "Complete!");
-                                if (MessageBox.Show("Export DLC .icn?\n(Please wait for ctpk to be built)", "Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
-                                {
-                                    AddText(RTB_Output, string.Format("Building icn from {0}...", Path.GetFileName(path)));
-                                    byte[] icn = CTPKtoICN(File.ReadAllBytes(path + ".ctpk"));
-                                    File.WriteAllBytes(path + ".icn", icn);
-                                    AddLine(RTB_Output, "Complete!");
-                                }
-                            }
-                            else
-                            {
-                                AddText(RTB_Output, string.Format("Building ctpk from {0}...", Path.GetFileName(path)));
-                                Ctpk.Create(path, path + ".ctpk");
-                                AddLine(RTB_Output, "Complete!");
-                            }
-                        }
-                    }
-                }
-                else if (ModifierKeys == Keys.Control)
+                if (ModifierKeys == Keys.Control)
                 {
                     AddText(RTB_Output, string.Format("Building ARC from {0}...", Path.GetFileName(path)));
                     FE3D_Bin.CreateArc(path, Alignment, B_ArcPadding.Checked);
                     AddLine(RTB_Output, "Complete!");
+                }
+                else if (ModifierKeys == Keys.Shift)
+                {
+                    string[] filelist = Directory.GetFiles(path, "*.xml");
+                    if (filelist == null || filelist.Length == 0)
+                    {
+                        AddText(RTB_Output, string.Format("Building textures to {0}...", Path.GetFileName(path)));
+
+                        if (File.Exists($"{path}.bch"))
+                            File.Delete($"{path}.bch");
+
+                        List<string> files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories).ToList();
+                        Scene = new H3D();
+                        foreach (string file in files)
+                        {
+                            Bitmap texture;
+                            try
+                            {
+                                texture = (Bitmap)Bitmap.FromFile(file);
+                            }
+                            catch (OutOfMemoryException)
+                            {
+                                Console.WriteLine("invalid image format");
+                                continue;
+                            }
+                            Scene.Textures.Add(new H3DTexture(Path.GetFileNameWithoutExtension(file), texture, SPICA.PICA.Commands.PICATextureFormat.RGBA8));
+                        }
+
+                        if (Scene.Textures.Count <= 0)
+                        {
+                            AddLine(RTB_Output, "Error");
+                            AddLine(RTB_Output, $"No images found in {Path.GetFileName(path)}");
+                        }
+                        else
+                        {
+                            H3D.Save($"{path}.bch", Scene);
+                            AddLine(RTB_Output, "Complete!");
+                        }
+                        return;
+                    }
+                    else
+                    {
+                        if (filelist.Length == 1 && Path.GetFileName(filelist[0]) == "icon.xml")
+                        {
+                            AddText(RTB_Output, string.Format("Building ctpk from {0}...", Path.GetFileName(path)));
+                            Ctpk.Create(path, path + ".ctpk");
+                            AddLine(RTB_Output, "Complete!");
+                            if (MessageBox.Show("Export DLC .icn?\n(Please wait for ctpk to be built)", "Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                            {
+                                AddText(RTB_Output, string.Format("Building icn from {0}...", Path.GetFileName(path)));
+                                byte[] icn = CTPKtoICN(File.ReadAllBytes(path + ".ctpk"));
+                                File.WriteAllBytes(path + ".icn", icn);
+                                AddLine(RTB_Output, "Complete!");
+                            }
+                        }
+                        else
+                        {
+                            AddText(RTB_Output, string.Format("Building ctpk from {0}...", Path.GetFileName(path)));
+                            Ctpk.Create(path, path + ".ctpk");
+                            AddLine(RTB_Output, "Complete!");
+                        }
+                        return;
+                    }
                 }
                 else
                 {
@@ -808,16 +816,15 @@ namespace FEAT
             AddLine(RTB_Output, string.Format("Ctrl   + Drag/Drop File for normal compression."));
             AddLine(RTB_Output, string.Format("Alt    + Drag/Drop File for extended compression."));
             AddLine(RTB_Output, string.Format("Shift + Drag/Drop File for Check lz13 Compression Header."));
-            AddLine(RTB_Output, string.Format("Ctrl   + Drag/Drop Folder for Arc builder." + Environment.NewLine));
+            AddLine(RTB_Output, string.Format("Ctrl   + Drag/Drop Folder for Arc builder."));
+            AddLine(RTB_Output, string.Format("Shift + Drag/Drop Folder for bch texture builder." + Environment.NewLine));
             AddLine(RTB_Output, string.Format("#####     Additonal Options     #####"));
             AddLine(RTB_Output, string.Format("Auto Extract will extract textures, arc, text, after decompression."));
             AddLine(RTB_Output, string.Format("Batch Compress allows for compression of many files all at once."));
             AddLine(RTB_Output, string.Format("Delete After use will Delete the original file after compression/decompression"));
-            AddLine(RTB_Output, string.Format("Build Textures + Drag/Drop Folder for Replace Textures in .bch"));
-            AddLine(RTB_Output, string.Format("Build Textures + Drag/Drop extacted ctpk Folder to rebuild .ctpk"));
             AddLine(RTB_Output, string.Format("ARC Padding adds Padding to build arc file for Fates."));
             AddLine(RTB_Output, string.Format("ARC File Alignment adjusts the amount of padding added to align files"));
-            AddLine(RTB_Output, string.Format("Enable Ruby Script allows bin files to be decompiled to text based files"));
+            AddLine(RTB_Output, string.Format("Enable bin decompiling allows bin files to be decompiled to text based files"));
         }
 
         private void AlignButton_Click(object sender, EventArgs e, int Align)

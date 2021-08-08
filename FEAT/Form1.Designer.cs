@@ -40,7 +40,6 @@
             this.B_AutoExtract = new System.Windows.Forms.ToolStripMenuItem();
             this.B_BatchMode = new System.Windows.Forms.ToolStripMenuItem();
             this.B_DeleteAfter = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_BuildTexture = new System.Windows.Forms.ToolStripMenuItem();
             this.B_ArcPadding = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Alignment = new System.Windows.Forms.ToolStripMenuItem();
             this.B_Align0 = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +123,6 @@
             this.B_AutoExtract,
             this.B_BatchMode,
             this.B_DeleteAfter,
-            this.B_BuildTexture,
             this.B_ArcPadding,
             this.B_Alignment,
             this.B_BinDecomp});
@@ -160,14 +158,6 @@
             this.B_DeleteAfter.Size = new System.Drawing.Size(200, 22);
             this.B_DeleteAfter.Text = "Delete After Use";
             this.B_DeleteAfter.ToolTipText = "Deletes the file being proccessed \r\nleaving only the results";
-            // 
-            // B_BuildTexture
-            // 
-            this.B_BuildTexture.CheckOnClick = true;
-            this.B_BuildTexture.Name = "B_BuildTexture";
-            this.B_BuildTexture.Size = new System.Drawing.Size(200, 22);
-            this.B_BuildTexture.Text = "Build Textures";
-            this.B_BuildTexture.ToolTipText = "Enables texture importing";
             // 
             // B_ArcPadding
             // 
@@ -262,7 +252,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_Go;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem B_AutoExtract;
-        private System.Windows.Forms.ToolStripMenuItem B_BuildTexture;
         private System.Windows.Forms.ToolStripMenuItem B_Help;
         private System.Windows.Forms.ToolStripMenuItem B_ArcPadding;
         private System.Windows.Forms.ToolStripMenuItem B_Alignment;
