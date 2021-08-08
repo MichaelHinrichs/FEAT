@@ -24,6 +24,10 @@ Drag and Drop an Extract CTPK folder to rebuild the CTPK.<br />
 AmbiguousPresence#4536 for the ruby script bin decompiling is based on.
 
 ## Velouria Forked FEAT v2.5
+- Reworked bch texture builder
+- Fixed ctpk and bcmdl extraction
+
+## Velouria Forked FEAT v2.5
 - Option to toggle bin decompiling on and off
 - Added tooltips for opitons explaining them
 
