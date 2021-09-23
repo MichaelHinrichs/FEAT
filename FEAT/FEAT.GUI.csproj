@@ -85,17 +85,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FE3D\FE3D.Graphics\FE3D.Graphics.csproj">
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FE3D.Graphics\FE3D.Graphics.csproj">
       <Project>{c4346b87-3a7f-47e3-9368-653ae15959f4}</Project>
       <Name>FE3D.Graphics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FE3D\FE3D\FE3D.csproj">
+    <ProjectReference Include="..\FE3D\FE3D.csproj">
       <Project>{5b7b0d72-dc09-4344-a8c6-f616c23dd20b}</Project>
       <Name>FE3D</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
