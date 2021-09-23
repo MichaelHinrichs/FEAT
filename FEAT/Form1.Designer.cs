@@ -1,4 +1,5 @@
-﻿namespace FEAT
+﻿
+namespace FEAT
 {
     partial class Form1
     {
@@ -29,212 +30,285 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.RTB_Output = new System.Windows.Forms.RichTextBox();
-            this.TB_FilePath = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.B_Open = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Go = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Help = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.B_AutoExtract = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_BatchMode = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_DeleteAfter = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_ArcPadding = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Alignment = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Align0 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Align16 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Align32 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Align64 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_Align128 = new System.Windows.Forms.ToolStripMenuItem();
-            this.B_BinDecomp = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchCompressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAfterProcessingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arcOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enablePaddingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bytesToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressionOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lZ10CompressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lZ11ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lZ13ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportDaeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportSMDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableBinDecomplingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // RTB_Output
-            // 
-            this.RTB_Output.BackColor = System.Drawing.SystemColors.Control;
-            this.RTB_Output.Location = new System.Drawing.Point(7, 28);
-            this.RTB_Output.Name = "RTB_Output";
-            this.RTB_Output.ReadOnly = true;
-            this.RTB_Output.Size = new System.Drawing.Size(450, 301);
-            this.RTB_Output.TabIndex = 12;
-            this.RTB_Output.Text = "Open a file, or Drag/Drop several! Click this box for more options.\n";
-            this.RTB_Output.Click += new System.EventHandler(this.RTB_Output_Click);
-            // 
-            // TB_FilePath
-            // 
-            this.TB_FilePath.Location = new System.Drawing.Point(113, 4);
-            this.TB_FilePath.Name = "TB_FilePath";
-            this.TB_FilePath.ReadOnly = true;
-            this.TB_FilePath.Size = new System.Drawing.Size(344, 20);
-            this.TB_FilePath.TabIndex = 11;
-            this.TB_FilePath.TextChanged += new System.EventHandler(this.TB_FilePath_TextChanged);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2});
+            this.toolStripDropDownButton2,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(469, 25);
-            this.toolStrip1.TabIndex = 15;
+            this.toolStrip1.Size = new System.Drawing.Size(447, 25);
+            this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.B_Open,
-            this.B_Go,
-            this.B_Help});
+            this.openToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(38, 22);
             this.toolStripDropDownButton1.Text = "File";
             // 
-            // B_Open
+            // openToolStripMenuItem
             // 
-            this.B_Open.Name = "B_Open";
-            this.B_Open.Size = new System.Drawing.Size(103, 22);
-            this.B_Open.Text = "Open";
-            this.B_Open.Click += new System.EventHandler(this.B_Open_Click);
-            // 
-            // B_Go
-            // 
-            this.B_Go.Name = "B_Go";
-            this.B_Go.Size = new System.Drawing.Size(103, 22);
-            this.B_Go.Text = "Go";
-            this.B_Go.Click += new System.EventHandler(this.B_Go_Click);
-            // 
-            // B_Help
-            // 
-            this.B_Help.Name = "B_Help";
-            this.B_Help.Size = new System.Drawing.Size(103, 22);
-            this.B_Help.Text = "Help";
-            this.B_Help.Click += new System.EventHandler(this.B_Help_Click);
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
             // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.B_AutoExtract,
-            this.B_BatchMode,
-            this.B_DeleteAfter,
-            this.B_ArcPadding,
-            this.B_Alignment,
-            this.B_BinDecomp});
+            this.autoExtractToolStripMenuItem,
+            this.batchCompressToolStripMenuItem,
+            this.deleteAfterProcessingToolStripMenuItem,
+            this.arcOptionsToolStripMenuItem,
+            this.compressionOptionsToolStripMenuItem,
+            this.modelOptionsToolStripMenuItem,
+            this.enableBinDecomplingToolStripMenuItem});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(62, 22);
             this.toolStripDropDownButton2.Text = "Options";
             // 
-            // B_AutoExtract
+            // autoExtractToolStripMenuItem
             // 
-            this.B_AutoExtract.Checked = true;
-            this.B_AutoExtract.CheckOnClick = true;
-            this.B_AutoExtract.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.B_AutoExtract.Name = "B_AutoExtract";
-            this.B_AutoExtract.Size = new System.Drawing.Size(200, 22);
-            this.B_AutoExtract.Text = "Auto Extract";
-            this.B_AutoExtract.ToolTipText = "Processes the file again after decompressing it";
+            this.autoExtractToolStripMenuItem.Checked = true;
+            this.autoExtractToolStripMenuItem.CheckOnClick = true;
+            this.autoExtractToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoExtractToolStripMenuItem.Name = "autoExtractToolStripMenuItem";
+            this.autoExtractToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.autoExtractToolStripMenuItem.Text = "Auto Extract";
             // 
-            // B_BatchMode
+            // batchCompressToolStripMenuItem
             // 
-            this.B_BatchMode.CheckOnClick = true;
-            this.B_BatchMode.Name = "B_BatchMode";
-            this.B_BatchMode.Size = new System.Drawing.Size(200, 22);
-            this.B_BatchMode.Text = "Batch Compress";
-            this.B_BatchMode.ToolTipText = "Overwrites the compression hotkey and \r\nforces FEAT to always compress";
-            this.B_BatchMode.Click += new System.EventHandler(this.B_BatchMode_Click);
+            this.batchCompressToolStripMenuItem.CheckOnClick = true;
+            this.batchCompressToolStripMenuItem.Name = "batchCompressToolStripMenuItem";
+            this.batchCompressToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.batchCompressToolStripMenuItem.Text = "Batch Compress";
             // 
-            // B_DeleteAfter
+            // deleteAfterProcessingToolStripMenuItem
             // 
-            this.B_DeleteAfter.CheckOnClick = true;
-            this.B_DeleteAfter.Name = "B_DeleteAfter";
-            this.B_DeleteAfter.Size = new System.Drawing.Size(200, 22);
-            this.B_DeleteAfter.Text = "Delete After Use";
-            this.B_DeleteAfter.ToolTipText = "Deletes the file being proccessed \r\nleaving only the results";
+            this.deleteAfterProcessingToolStripMenuItem.CheckOnClick = true;
+            this.deleteAfterProcessingToolStripMenuItem.Name = "deleteAfterProcessingToolStripMenuItem";
+            this.deleteAfterProcessingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.deleteAfterProcessingToolStripMenuItem.Text = "Delete After Processing";
             // 
-            // B_ArcPadding
+            // arcOptionsToolStripMenuItem
             // 
-            this.B_ArcPadding.Checked = true;
-            this.B_ArcPadding.CheckOnClick = true;
-            this.B_ArcPadding.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.B_ArcPadding.Name = "B_ArcPadding";
-            this.B_ArcPadding.Size = new System.Drawing.Size(200, 22);
-            this.B_ArcPadding.Text = "ARC Padding";
-            this.B_ArcPadding.ToolTipText = "Beginning of file padding for arcs";
+            this.arcOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enablePaddingToolStripMenuItem,
+            this.bytesToolStripMenuItem,
+            this.bytesToolStripMenuItem1,
+            this.bytesToolStripMenuItem2,
+            this.bytesToolStripMenuItem3,
+            this.bytesToolStripMenuItem4,
+            this.bytesToolStripMenuItem5,
+            this.bytesToolStripMenuItem6});
+            this.arcOptionsToolStripMenuItem.Name = "arcOptionsToolStripMenuItem";
+            this.arcOptionsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.arcOptionsToolStripMenuItem.Text = "Arc Options";
             // 
-            // B_Alignment
+            // enablePaddingToolStripMenuItem
             // 
-            this.B_Alignment.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.B_Align0,
-            this.B_Align16,
-            this.B_Align32,
-            this.B_Align64,
-            this.B_Align128});
-            this.B_Alignment.Name = "B_Alignment";
-            this.B_Alignment.Size = new System.Drawing.Size(200, 22);
-            this.B_Alignment.Text = "ARC File Alignment";
-            this.B_Alignment.ToolTipText = "Padding between files \r\nin arcs so the align \r\nwithin chunks";
+            this.enablePaddingToolStripMenuItem.Checked = true;
+            this.enablePaddingToolStripMenuItem.CheckOnClick = true;
+            this.enablePaddingToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enablePaddingToolStripMenuItem.Name = "enablePaddingToolStripMenuItem";
+            this.enablePaddingToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.enablePaddingToolStripMenuItem.Text = "Enable Padding";
             // 
-            // B_Align0
+            // bytesToolStripMenuItem
             // 
-            this.B_Align0.Name = "B_Align0";
-            this.B_Align0.Size = new System.Drawing.Size(123, 22);
-            this.B_Align0.Text = "0 bytes";
+            this.bytesToolStripMenuItem.CheckOnClick = true;
+            this.bytesToolStripMenuItem.Name = "bytesToolStripMenuItem";
+            this.bytesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem.Text = "0 Bytes";
             // 
-            // B_Align16
+            // bytesToolStripMenuItem1
             // 
-            this.B_Align16.Name = "B_Align16";
-            this.B_Align16.Size = new System.Drawing.Size(123, 22);
-            this.B_Align16.Text = "16 bytes";
+            this.bytesToolStripMenuItem1.CheckOnClick = true;
+            this.bytesToolStripMenuItem1.Name = "bytesToolStripMenuItem1";
+            this.bytesToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem1.Text = "4 Bytes";
             // 
-            // B_Align32
+            // bytesToolStripMenuItem2
             // 
-            this.B_Align32.Name = "B_Align32";
-            this.B_Align32.Size = new System.Drawing.Size(123, 22);
-            this.B_Align32.Text = "32 bytes";
+            this.bytesToolStripMenuItem2.CheckOnClick = true;
+            this.bytesToolStripMenuItem2.Name = "bytesToolStripMenuItem2";
+            this.bytesToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem2.Text = "8 Bytes";
             // 
-            // B_Align64
+            // bytesToolStripMenuItem3
             // 
-            this.B_Align64.Name = "B_Align64";
-            this.B_Align64.Size = new System.Drawing.Size(123, 22);
-            this.B_Align64.Text = "64 bytes";
+            this.bytesToolStripMenuItem3.CheckOnClick = true;
+            this.bytesToolStripMenuItem3.Name = "bytesToolStripMenuItem3";
+            this.bytesToolStripMenuItem3.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem3.Text = "16 Bytes";
             // 
-            // B_Align128
+            // bytesToolStripMenuItem4
             // 
-            this.B_Align128.Checked = true;
-            this.B_Align128.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.B_Align128.Name = "B_Align128";
-            this.B_Align128.Size = new System.Drawing.Size(123, 22);
-            this.B_Align128.Text = "128 bytes";
+            this.bytesToolStripMenuItem4.CheckOnClick = true;
+            this.bytesToolStripMenuItem4.Name = "bytesToolStripMenuItem4";
+            this.bytesToolStripMenuItem4.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem4.Text = "32 Bytes";
             // 
-            // B_BinDecomp
+            // bytesToolStripMenuItem5
             // 
-            this.B_BinDecomp.CheckOnClick = true;
-            this.B_BinDecomp.Name = "B_BinDecomp";
-            this.B_BinDecomp.Size = new System.Drawing.Size(200, 22);
-            this.B_BinDecomp.Text = "Enable Bin Decompiling";
-            this.B_BinDecomp.ToolTipText = "Convert Bin files to txt files";
+            this.bytesToolStripMenuItem5.CheckOnClick = true;
+            this.bytesToolStripMenuItem5.Name = "bytesToolStripMenuItem5";
+            this.bytesToolStripMenuItem5.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem5.Text = "64 Bytes";
+            // 
+            // bytesToolStripMenuItem6
+            // 
+            this.bytesToolStripMenuItem6.Checked = true;
+            this.bytesToolStripMenuItem6.CheckOnClick = true;
+            this.bytesToolStripMenuItem6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.bytesToolStripMenuItem6.Name = "bytesToolStripMenuItem6";
+            this.bytesToolStripMenuItem6.Size = new System.Drawing.Size(156, 22);
+            this.bytesToolStripMenuItem6.Text = "128 Bytes";
+            // 
+            // compressionOptionsToolStripMenuItem
+            // 
+            this.compressionOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lZ10CompressionToolStripMenuItem,
+            this.lZ11ToolStripMenuItem,
+            this.lZ13ToolStripMenuItem});
+            this.compressionOptionsToolStripMenuItem.Name = "compressionOptionsToolStripMenuItem";
+            this.compressionOptionsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.compressionOptionsToolStripMenuItem.Text = "Compression Options";
+            // 
+            // lZ10CompressionToolStripMenuItem
+            // 
+            this.lZ10CompressionToolStripMenuItem.CheckOnClick = true;
+            this.lZ10CompressionToolStripMenuItem.Name = "lZ10CompressionToolStripMenuItem";
+            this.lZ10CompressionToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.lZ10CompressionToolStripMenuItem.Text = "LZ10 ";
+            // 
+            // lZ11ToolStripMenuItem
+            // 
+            this.lZ11ToolStripMenuItem.CheckOnClick = true;
+            this.lZ11ToolStripMenuItem.Name = "lZ11ToolStripMenuItem";
+            this.lZ11ToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.lZ11ToolStripMenuItem.Text = "LZ11 ";
+            // 
+            // lZ13ToolStripMenuItem
+            // 
+            this.lZ13ToolStripMenuItem.Checked = true;
+            this.lZ13ToolStripMenuItem.CheckOnClick = true;
+            this.lZ13ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.lZ13ToolStripMenuItem.Name = "lZ13ToolStripMenuItem";
+            this.lZ13ToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.lZ13ToolStripMenuItem.Text = "LZ13";
+            // 
+            // modelOptionsToolStripMenuItem
+            // 
+            this.modelOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportDaeToolStripMenuItem,
+            this.exportSMDToolStripMenuItem});
+            this.modelOptionsToolStripMenuItem.Name = "modelOptionsToolStripMenuItem";
+            this.modelOptionsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.modelOptionsToolStripMenuItem.Text = "Model Options";
+            // 
+            // exportDaeToolStripMenuItem
+            // 
+            this.exportDaeToolStripMenuItem.CheckOnClick = true;
+            this.exportDaeToolStripMenuItem.Name = "exportDaeToolStripMenuItem";
+            this.exportDaeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exportDaeToolStripMenuItem.Text = "Export Dae";
+            // 
+            // exportSMDToolStripMenuItem
+            // 
+            this.exportSMDToolStripMenuItem.CheckOnClick = true;
+            this.exportSMDToolStripMenuItem.Name = "exportSMDToolStripMenuItem";
+            this.exportSMDToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exportSMDToolStripMenuItem.Text = "Export SMD";
+            // 
+            // enableBinDecomplingToolStripMenuItem
+            // 
+            this.enableBinDecomplingToolStripMenuItem.CheckOnClick = true;
+            this.enableBinDecomplingToolStripMenuItem.Name = "enableBinDecomplingToolStripMenuItem";
+            this.enableBinDecomplingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.enableBinDecomplingToolStripMenuItem.Text = "Enable Bin Decompiling";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 22);
+            this.toolStripButton1.Text = "Help";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.Location = new System.Drawing.Point(8, 31);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(432, 309);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(155, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(284, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 341);
-            this.Controls.Add(this.RTB_Output);
-            this.Controls.Add(this.TB_FilePath);
+            this.ClientSize = new System.Drawing.Size(447, 347);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(485, 380);
-            this.MinimumSize = new System.Drawing.Size(485, 380);
             this.Name = "Form1";
-            this.Text = "Fire Emblem Archive Tool";
+            this.Text = "FEAT - Fire Emblem Archive Tool";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -244,25 +318,33 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox RTB_Output;
-        private System.Windows.Forms.TextBox TB_FilePath;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem B_Open;
-        private System.Windows.Forms.ToolStripMenuItem B_Go;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem B_AutoExtract;
-        private System.Windows.Forms.ToolStripMenuItem B_Help;
-        private System.Windows.Forms.ToolStripMenuItem B_ArcPadding;
-        private System.Windows.Forms.ToolStripMenuItem B_Alignment;
-        private System.Windows.Forms.ToolStripMenuItem B_Align0;
-        private System.Windows.Forms.ToolStripMenuItem B_Align16;
-        private System.Windows.Forms.ToolStripMenuItem B_Align32;
-        private System.Windows.Forms.ToolStripMenuItem B_Align64;
-        private System.Windows.Forms.ToolStripMenuItem B_Align128;
-        private System.Windows.Forms.ToolStripMenuItem B_BatchMode;
-        private System.Windows.Forms.ToolStripMenuItem B_DeleteAfter;
-        private System.Windows.Forms.ToolStripMenuItem B_BinDecomp;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem autoExtractToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem batchCompressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAfterProcessingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arcOptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enablePaddingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem bytesToolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem compressionOptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lZ10CompressionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lZ11ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lZ13ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modelOptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportDaeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportSMDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enableBinDecomplingToolStripMenuItem;
     }
 }
 

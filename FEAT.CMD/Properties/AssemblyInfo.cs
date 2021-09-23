@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FEAT")]
+[assembly: AssemblyTitle("FEAT.CMD")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FEAT")]
+[assembly: AssemblyProduct("FEAT.CMD")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("eebb636e-b909-4f7b-98e7-1088993183ef")]
+[assembly: Guid("3f1d5042-912a-4c49-b7f2-3555150f3d50")]
 
 // Version information for an assembly consists of the following four values:
 //
