@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31612.314
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1758
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FEAT.GUI", "FEAT\FEAT.GUI.csproj", "{EEBB636E-B909-4F7B-98E7-1088993183EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FEAT.CMD", "FEAT.CMD\FEAT.CMD.csproj", "{3F1D5042-912A-4C49-B7F2-3555150F3D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FE3D", "FE3D\FE3D.csproj", "{5B7B0D72-DC09-4344-A8C6-F616C23DD20B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FE3D", "..\FE3D\FE3D\FE3D.csproj", "{5B7B0D72-DC09-4344-A8C6-F616C23DD20B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FE3D.Graphics", "FE3D.Graphics\FE3D.Graphics.csproj", "{C4346B87-3A7F-47E3-9368-653AE15959F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FE3D.Graphics", "..\FE3D\FE3D.Graphics\FE3D.Graphics.csproj", "{C4346B87-3A7F-47E3-9368-653AE15959F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
