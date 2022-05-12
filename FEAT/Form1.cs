@@ -88,6 +88,9 @@ namespace FEAT
 
                     List<string> files = Directory.GetFiles(infile, "*.*", SearchOption.AllDirectories).ToList();
                     H3D Scene = new H3D();
+                    Scene.ConverterVersion = 44139;
+                    Scene.BackwardCompatibility = 34;
+                    Scene.ForwardCompatibility = 35;
                     foreach (string file in files)
                     {
                         Bitmap texture;
