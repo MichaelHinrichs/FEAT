@@ -80,6 +80,9 @@ namespace FEAT
                 {
                     AddLine(richTextBox1, $"Building BCH from {Path.GetFileName(infile)}...");
 
+                    if (infile.EndsWith("_"))
+                        infile = infile.Substring(0, infile.Length - "_".Length);
+
                     if (File.Exists(infile + ".bch"))
                         File.Delete(infile + ".bch");
 
@@ -131,6 +134,7 @@ namespace FEAT
                 byte[] data = File.ReadAllBytes(infile);
                 string magic = FEIO.GetMagic(data);
                 string ext = Path.GetExtension(infile);
+                string outpath = ext.Length == 0 ? infile : infile.Replace(ext, "");
 
                 if (ModifierKeys == Keys.Control || batchCompressToolStripMenuItem.Checked) // Compression Method
                 {
@@ -241,8 +245,8 @@ namespace FEAT
                 }
                 else if (ext == ".arc") //Archive file
                 {
-                    FEArc.ExtractArc(infile.Replace(ext, ""), data);
                     AddLine(richTextBox1, $"Extract Files from {Path.GetFileName(infile)}...");
+                    FEArc.ExtractArc(outpath, data);
                     AddLine(richTextBox1, "Done");
                 }
                 else if (magic == "BCH" || magic == "CGFX") //BCH / Bcres file
@@ -253,9 +257,10 @@ namespace FEAT
                     else
                         Scene = H3D.Open(data);
 
-                    if (Directory.Exists(infile.Replace(ext, "")))
-                        Directory.Delete(infile.Replace(ext, ""), true);
-                    Directory.CreateDirectory(infile.Replace(ext, ""));
+                    if (Directory.Exists(outpath))
+                        Directory.Delete(outpath, true);
+                    if (File.Exists(outpath))
+                        outpath = outpath + "_";
 
                     //Export method for textures, this is always enabled by default
                     if (Scene.Textures.Count > 0)
@@ -264,7 +269,7 @@ namespace FEAT
                         foreach (var texture in Scene.Textures)
                         {
                             Image img = texture.ToBitmap();
-                            img.Save($"{infile.Replace(ext,"")}\\{texture.Name}.png", System.Drawing.Imaging.ImageFormat.Png);
+                            img.Save($"{outpath}\\{texture.Name}.png", System.Drawing.Imaging.ImageFormat.Png);
                         }
                         AddLine(richTextBox1, "Done");
                     }
@@ -276,12 +281,12 @@ namespace FEAT
                             if (exportDaeToolStripMenuItem.Checked)
                             {
                                 DAE dae = new DAE(Scene, i);
-                                dae.Save($"{infile.Replace(ext, "")}\\{Scene.Models[i].Name}.dae");
+                                dae.Save($"{outpath}\\{Scene.Models[i].Name}.dae");
                             }
                             if (exportSMDToolStripMenuItem.Checked)
                             {
                                 SMD smd = new SMD(Scene, i);
-                                smd.Save($"{infile.Replace(ext, "")}\\{Scene.Models[i].Name}.smd");
+                                smd.Save($"{outpath}\\{Scene.Models[i].Name}.smd");
                             }
                         }
                         AddLine(richTextBox1, "Done");
