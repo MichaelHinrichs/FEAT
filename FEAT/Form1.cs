@@ -67,7 +67,8 @@ namespace FEAT
 
         private void Open(string infile)
         {
-            if (Directory.Exists(infile))
+            FileAttributes fileAttributes = File.GetAttributes(infile);
+            if (fileAttributes.HasFlag(FileAttributes.Directory))
             {
                 if (ModifierKeys == Keys.Control)
                 {
@@ -125,7 +126,7 @@ namespace FEAT
                         Open(p);
                 }
             }
-            else if (File.Exists(infile))
+            else
             {
                 byte[] data = File.ReadAllBytes(infile);
                 string magic = FEIO.GetMagic(data);
