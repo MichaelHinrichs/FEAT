@@ -72,13 +72,13 @@ namespace FEAT
             {
                 if (ModifierKeys == Keys.Control)
                 {
-                    AddText(richTextBox1, $"Building Arc from {Path.GetFileName(infile)}..."); 
+                    AddLine(richTextBox1, $"Building Arc from {Path.GetFileName(infile)}..."); 
                     FEArc.PackArc(infile, Alignment, enablePaddingToolStripMenuItem.Checked);
                     AddLine(richTextBox1, "Done");
                 }
                 else if (ModifierKeys == Keys.Shift)
                 {
-                    AddText(richTextBox1, $"Building BCH from {Path.GetFileName(infile)}...");
+                    AddLine(richTextBox1, $"Building BCH from {Path.GetFileName(infile)}...");
 
                     if (File.Exists(infile + ".bch"))
                         File.Delete(infile + ".bch");
@@ -114,7 +114,7 @@ namespace FEAT
                 }
                 else if (ModifierKeys == Keys.Alt)
                 {
-                    AddText(richTextBox1, $"Building CTPK from {Path.GetFileName(infile)}...");
+                    AddLine(richTextBox1, $"Building CTPK from {Path.GetFileName(infile)}...");
                     CTPK.MakeCTPK(infile);
                     AddLine(richTextBox1, "Done");
                 }
@@ -137,7 +137,7 @@ namespace FEAT
                     byte[] cmp;
                     if (lZ10CompressionToolStripMenuItem.Checked)
                     {
-                        AddText(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz10...");
+                        AddLine(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz10...");
                         try
                         {
                             cmp = FEIO.LZ10Compress(data);
@@ -152,7 +152,7 @@ namespace FEAT
                     }
                     else if (lZ11ToolStripMenuItem.Checked)
                     {
-                        AddText(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz11...");
+                        AddLine(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz11...");
                         try
                         {
                             cmp = FEIO.LZ11Compress(data);
@@ -167,7 +167,7 @@ namespace FEAT
                     }
                     else if (lZ13ToolStripMenuItem.Checked)
                     {
-                        AddText(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz13...");
+                        AddLine(richTextBox1, $"Compressing {Path.GetFileName(infile)} to {Path.GetFileName(infile)}.lz using lz13...");
                         try
                         {
                             cmp = FEIO.LZ13Compress(data);
@@ -188,7 +188,7 @@ namespace FEAT
                     byte[] dcmp;
                     if (data[0] == 0x10)
                     {
-                        AddText(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz10...");
+                        AddLine(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz10...");
                         try
                         {
                             dcmp = FEIO.LZ10Decompress(data);
@@ -203,7 +203,7 @@ namespace FEAT
                     } //LZ10
                     else if (data[0] == 0x11)
                     {
-                        AddText(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz11...");
+                        AddLine(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz11...");
                         try
                         {
                             dcmp = FEIO.LZ11Decompress(data);
@@ -218,7 +218,7 @@ namespace FEAT
                     } //LZ11
                     else if (data[0] == 0x13 && data[4] == 0x11)
                     {
-                        AddText(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz13...");
+                        AddLine(richTextBox1, $"Decompressing {Path.GetFileName(infile)} using lz13...");
                         try
                         {
                             dcmp = FEIO.LZ13Decompress(data);
@@ -241,8 +241,8 @@ namespace FEAT
                 }
                 else if (ext == ".arc") //Archive file
                 {
-                    AddText(richTextBox1, $"Extract Files from {Path.GetFileName(infile)}...");
                     FEArc.ExtractArc(infile.Replace(ext, ""), data);
+                    AddLine(richTextBox1, $"Extract Files from {Path.GetFileName(infile)}...");
                     AddLine(richTextBox1, "Done");
                 }
                 else if (magic == "BCH" || magic == "CGFX") //BCH / Bcres file
@@ -260,7 +260,7 @@ namespace FEAT
                     //Export method for textures, this is always enabled by default
                     if (Scene.Textures.Count > 0)
                     {
-                        AddText(richTextBox1, $"Extracting Textures from {Path.GetFileName(infile)}...");
+                        AddLine(richTextBox1, $"Extracting Textures from {Path.GetFileName(infile)}...");
                         foreach (var texture in Scene.Textures)
                         {
                             Image img = texture.ToBitmap();
@@ -270,7 +270,7 @@ namespace FEAT
                     }
                     if (exportDaeToolStripMenuItem.Checked || exportSMDToolStripMenuItem.Checked && Scene.Models.Count > 0)
                     {
-                        AddText(richTextBox1, $"Extracting Models from {Path.GetFileName(infile)}...");
+                        AddLine(richTextBox1, $"Extracting Models from {Path.GetFileName(infile)}...");
                         for (int i = 0; i < Scene.Models.Count; i++)
                         {
                             if (exportDaeToolStripMenuItem.Checked)
@@ -289,7 +289,7 @@ namespace FEAT
                 }
                 else if (magic == "CTPK") //CTPK file
                 {
-                    AddText(richTextBox1, $"Extract Textures from {Path.GetFileName(infile)}...");
+                    AddLine(richTextBox1, $"Extract Textures from {Path.GetFileName(infile)}...");
                     CTPK.ExtractCTPK(infile);
                     AddLine(richTextBox1, "Done");
                 }
@@ -297,13 +297,13 @@ namespace FEAT
                 {
                     if (FEIO.ReadStringFromArray(data, Encoding.UTF8, 0x20).Contains("MESS_ARCHIVE"))
                     {
-                        AddText(richTextBox1, $"Extracting Message Archive {Path.GetFileName(infile)}...");
+                        AddLine(richTextBox1, $"Extracting Message Archive {Path.GetFileName(infile)}...");
                         FEMessage.ExtractMessage(infile.Replace(ext, ".txt"), data);
                         AddLine(richTextBox1, "Done");
                     }
                     else if (enableBinDecomplingToolStripMenuItem.Checked)
                     {
-                        AddText(richTextBox1, $"Decompiling {Path.GetFileName(infile)} to txt...");
+                        AddLine(richTextBox1, $"Decompiling {Path.GetFileName(infile)} to txt...");
                         FEBin.ExtractBin(infile);
                         AddLine(richTextBox1, "Done");
                     }
