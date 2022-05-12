@@ -279,6 +279,9 @@ namespace FEAT
                     if (exportDaeToolStripMenuItem.Checked || exportSMDToolStripMenuItem.Checked && Scene.Models.Count > 0)
                     {
                         AddLine(richTextBox1, $"Extracting Models from {Path.GetFileName(infile)}...");
+                        if (!Directory.Exists(outpath))
+                            Directory.CreateDirectory(outpath);
+
                         for (int i = 0; i < Scene.Models.Count; i++)
                         {
                             if (exportDaeToolStripMenuItem.Checked)
