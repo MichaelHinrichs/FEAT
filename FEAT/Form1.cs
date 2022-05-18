@@ -269,6 +269,9 @@ namespace FEAT
                     if (Scene.Textures.Count > 0)
                     {
                         AddLine(richTextBox1, $"Extracting Textures from {Path.GetFileName(infile)}...");
+                        if (!Directory.Exists(outpath))
+                            Directory.CreateDirectory(outpath);
+
                         foreach (var texture in Scene.Textures)
                         {
                             Image img = texture.ToBitmap();
